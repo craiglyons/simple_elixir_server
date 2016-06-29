@@ -1,7 +1,7 @@
 # SimpleServer
 
-This is a fast and lightweight web server written in Elixir w/ Plug.
-It's intent is to serve static content for testing other apps in development.
+This is a fast and lightweight web server written in Elixir w/ Plug.  
+Its intent is to serve static content for testing other apps in development.
 
 It current supports eex templates & serving static assets.
 
