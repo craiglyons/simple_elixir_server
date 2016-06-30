@@ -28,6 +28,6 @@ defmodule SimpleServer.Mixfile do
      maintainers: ["Craig Lyons (craiglyons.dev@gmail.com)"],
 		 licenses: ["MIT"],
 		 links: %{github: "https://github.com/craiglyons/simple_server"},
-		 files: ~w(lib templates priv mix.exs README.md)]
+		 files: ~w(lib mix.exs README.md templates priv)]
 	end
 end

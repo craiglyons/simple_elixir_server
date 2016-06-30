@@ -7,18 +7,11 @@ defmodule SimpleServer.Web do
   require Logger
 
   plug Plug.Logger
-  plug Plug.Static, at: "/public", from: :simple_server
+  plug Plug.Static,
+    at: "/", from: :simple_server,
+    only: ~w(css images js favicon.ico robots.txt)
   plug :match
   plug :dispatch
-
-	plug :not_found
-
-	@doc """
-    Handle 404s
-	"""
-	def not_found(conn, _) do
-		send_resp(conn, 404, "not found")
-	end
 
   def init(options) do
     options
@@ -33,7 +26,13 @@ defmodule SimpleServer.Web do
 
   get "/" do
     page_contents = EEx.eval_file("templates/index.html.eex")
-    conn |> Plug.Conn.put_resp_content_type("text/html") |> Plug.Conn.send_resp(200, page_contents)
+    conn |> Plug.Conn.put_resp_content_type("text/html") |> Plug.Conn.send_resp(200, page_contents) |> halt
+  end
 
+	@doc """
+    Handle 404s
+	"""
+  match _ do
+    send_resp(conn, 404, "not found")
   end
 end
