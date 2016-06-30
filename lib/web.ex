@@ -12,6 +12,10 @@ defmodule SimpleServer.Web do
   plug :dispatch
 
 	plug :not_found
+
+	@doc """
+    Handle 404s
+	"""
 	def not_found(conn, _) do
 		send_resp(conn, 404, "not found")
 	end
@@ -20,6 +24,9 @@ defmodule SimpleServer.Web do
     options
   end
 
+  @doc """
+    Start the server
+  """
   def start_link do
     {:ok, _} = Plug.Adapters.Cowboy.http SimpleServer.Web, []
   end
