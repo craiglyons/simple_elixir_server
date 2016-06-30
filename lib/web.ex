@@ -1,4 +1,8 @@
 defmodule SimpleServer.Web do
+  @moduledoc """
+  This is the router, which is really the core of SimpleServer.
+  """
+  
   use Plug.Router
   require Logger
 
