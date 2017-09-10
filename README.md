@@ -10,3 +10,5 @@ It current supports eex templates & serving static assets.
 * Clone
 * Modify `templates/index.eex`
 * Run using `mix run --no-halt`
+
+The server will be listening at port 4000 by default.
